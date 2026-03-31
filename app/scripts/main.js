@@ -2,11 +2,12 @@
 require('./localStoragePolyfill');
 var IS_CX = false;
 if (typeof chrome != 'undefined') IS_CX = chrome.windows === undefined ? false : true;
-var angular                  = require('angular');
+require('./lib/angular');
+var angular                  = window.angular;
 var angularTranslate         = require('angular-translate');
 var angularTranslateErrorLog = require('angular-translate-handler-log');
-var angularSanitize          = require('angular-sanitize');
-var angularAnimate           = require('angular-animate');
+require('./lib/angular-sanitize');
+require('./lib/angular-animate');
 var bip39                    = require('bip39');
 var HDKey                    = require('hdkey');
 window.hd                    = { bip39: bip39, HDKey: HDKey };
